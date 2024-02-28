@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SysPlay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Quicksand:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./script.js"></script>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+
+  <header id="header">
+
+    <div class="titulo">
+      <h1><span>></span>SysPlay<span>.</span></h1>
+    </div>
+
+  </header>
+
+  <section id="section">
+
+    <header>
+
+      <div class="titulo">
+        <h2>Problema do Produtor-Consumidor com Semáforos</h2>
+      </div>
+
+
+
+    </header>
+
+    <main id="mainContent">
+
+      <div class="size-buffer">
+        <label for="size-buffer">Tamanho do buffer</label>
+        <input type="number" name="" id="size-buffer">
+        <button onclick="createBuffer()">Ok</button>
+      </div>
+
+
+      <div class="message-buffer">
+        Configure um tamanho para o buffer!
+      </div>
+      <div class="buffer">
+        <div class="title">
+          <h3>Buffer</h3>
+        </div>
+
+        <div class="buffer-content">
+
+        </div>
+
+      </div>
+
+      <div class="attributes">
+        <p>mutex  <span id="mutex">0</span></p>
+        <p>empty  <span id="empty">0</span></p>
+        <p>full  <span id="full">0</span></p>
+      </div>
+
+      <div class="control">
+        <div class="producer">
+          <div class="column">
+            <div class="seta">
+              <span class="material-symbols-outlined arrow-producer" style="display: none;">
+                chevron_right
+              </span>
+            </div>
+
+
+            <div class="item producer-operation" draggable="true">
+              Down(empty)
+              <div class="img-producer" style="display: none;">
+                <img src="./img/load.gif" alt="load">
+              </div>
+            </div>
+            <div class="item producer-operation" draggable="true">
+              Down(mutex)
+              <div class="img-producer" style="display: none;">
+                <img src="./img/load.gif" alt="load">
+              </div>
+            </div>
+            <div class="item producer-operation" draggable="true">
+              Insert item
+              <div class="img-producer" style="display: none;">
+                <img src="./img/load.gif" alt="load">
+              </div>
+            </div>
+            <div class="item producer-operation" draggable="true">
+              Up(mutex)
+              <div class="img-producer" style="display: none;">
+                <img src="./img/load.gif" alt="load">
+              </div>
+            </div>
+            <div class="item producer-operation" draggable="true">
+              Up(full)
+              <div class="img-producer" style="display: none;">
+                <img src="./img/load.gif" alt="load">
+              </div>
+            </div>
+          </div>
+          <span>Producer</span>
+        </div>
+
+        <div class="processor">
+          <div class="p">
+            <button onclick="produzir()">Produzir</button>
+          </div>
+          <div class="os-scheduler">
+            <span>OS-scheduler</span>
+          </div>
+          <div class="c">
+            <button onclick="consumir()">Consumir</button>
+          </div>
+          <div class="cpu">
+            <span>CPU</span>
+          </div>
+        </div>
+
+        <div class="consumer">
+          <div class="column">
+            <div class="seta">
+              <span class="material-symbols-outlined arrow-consumer" style="display: none;">
+                chevron_right
+              </span>
+            </div>
+            <div class="item consumer-operation" draggable="true">
+              Down(full)
+              <div class="img-consumer" style="display: none;">
+                <img src="./img/load.gif" alt="load">
+              </div>
+            </div>
+            <div class="item consumer-operation" draggable="true">
+              Down(mutex)
+              <div class="img-consumer" style="display: none;">
+                <img src="./img/load.gif" alt="load">
+              </div>
+            </div>
+            <div class="item consumer-operation" draggable="true">
+              Consume item
+              <div class="img-consumer" style="display: none;">
+                <img src="./img/load.gif" alt="load">
+              </div>
+            </div>
+            <div class="item consumer-operation" draggable="true">
+              Up(mutex)
+              <div class="img-consumer" style="display: none;">
+                <img src="./img/load.gif" alt="load">
+              </div>
+            </div>
+            <div class="item consumer-operation" draggable="true">
+              Up(empty)
+              <div class="img-consumer" style="display: none;">
+                <img src="./img/load.gif" alt="load">
+              </div>
+            </div>
+          </div>
+          <span>Consumer</span>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+    </main>
+
+
+
+
+
+  </section>
+
+  <footer>
+
+    <div class="systems">
+
+      <div class="linux">
+        <img src="img/linux.svg" alt="linux">
+      </div>
+
+      <div class="windows">
+        <div class="fr1">
+          <div class="frame"></div>
+          <div class="frame"></div>
+        </div>
+        <div class="fr2">
+          <div class="frame"></div>
+          <div class="frame"></div>
+        </div>
+      </div>
+
+      <div class="apple">
+        <img src="img/apple.png" alt="apple">
+      </div>
+
+
+    </div>
+
+    <span>
+      &copy;2024 - Carlos Alessandro
+    </span>
+
+  </footer>
+
+
+  <div class="modal">
+    <div class="content">
+      <label for="tempoPensando">Tempo Pensando:</label>
+      <input type="range" id="tempoPensando" name="tempoPensando" min="1" max="60" value="1">
+      <output for="tempoPensando"></output>
+
+      <div class="containerExato">
+        <label for="exatoPensar" class="label">Valor exato</label>
+        <input type="checkbox" name="exato" id="exatoPensar" value="valor exato">
+      </div>
+
+
+      <div style="display: none;">
+        <label for="tempoFome">Tempo Fome:</label>
+        <input type="range" id="tempoFome" name="tempoFome" min="1" max="60" value="1">
+        <output for="tempoFome"></output>
+
+        <div class="containerExato">
+          <label for="exatoFome" class="label">Valor exato</label>
+          <input type="checkbox" name="exato" id="exatoFome" value="valor exato">
+        </div>
+      </div>
+
+
+
+      <label for="tempoComendo">Tempo Comendo:</label>
+      <input type="range" id="tempoComendo" name="tempoComendo" min="1" max="60" value="1">
+      <output for="tempoComendo"></output>
+
+      <div class="containerExato">
+        <label for="exatoComer" class="label">valor exato</label>
+        <input type="checkbox" name="exato" id="exatoComer" value="valor exato">
+      </div>
+
+
+      <div class="btns">
+        <input type="button" class="btnOk" value="Ok">
+        <input type="button" class="btnCancelar" value="Cancelar">
+      </div>
+    </div>
+  </div>
+
+
+
+
+</body>
+
+</html>
